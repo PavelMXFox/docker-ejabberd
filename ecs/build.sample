@@ -3,8 +3,6 @@
 build_name='ejabber'
 build_repos='<build-repos-name>'
 
-current=$(date +%y.%m)
-version=${1:-$current}
 
 
 
@@ -53,9 +51,6 @@ fi
 (( build_version++ ))
 
 docker buildx build \
- --build-arg VERSION=$version \
- --build-arg VCS_REF=`git rev-parse --short HEAD` \
- --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
  --platform linux/arm,linux/arm64,linux/amd64 \
  --tag=${build_repos}/${build_name}:${build_version} \
  --tag ${build_repos}/${build_name}:latest . ${push_suffix}
