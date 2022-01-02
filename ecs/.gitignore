@@ -2,4 +2,9 @@ db/
 ejbuild/
 log/
 *.tar.gz
+/build
+/images
+/Dockerfile
+/last_version
+
 
